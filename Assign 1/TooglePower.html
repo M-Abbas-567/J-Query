@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Smart Home Dashboard</title>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <style>
     body {
       background-color: white;
@@ -28,31 +30,27 @@
     img {
       width: 200px;
       margin-top: 20px;
-      transition: opacity 0.5s ease;
-    }
-
-    .hidden {
-      opacity: 0;
     }
   </style>
 </head>
+
 <body>
 
-  <button onclick="togglePower()">Toggle Power</button>
-  <button onclick="hideFan()">Hide Controls</button>
+  <button id="powerBtn">Toggle Power</button>
+  <button id="hideBtn">Hide Controls</button>
 
   <div>
     <img id="fan" src="https://cdn-icons-png.flaticon.com/512/2972/2972491.png" alt="Fan">
   </div>
 
   <script>
-    function togglePower() {
-      document.body.classList.toggle('dark-mode');
-    }
+    $('#powerBtn').click(function () {
+      $('body').toggleClass('dark-mode');
+    });
 
-    function hideFan() {
-      document.getElementById('fan').classList.toggle('hidden');
-    }
+    $('#hideBtn').click(function () {
+      $('#fan').fadeToggle();
+    });
   </script>
 
 </body>
